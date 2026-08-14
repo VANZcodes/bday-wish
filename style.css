@@ -1,0 +1,543 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY / BACKGROUND
+========================= */
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            ellipse at top left,
+            rgba(255, 248, 251, 0.45),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            ellipse at top right,
+            rgba(255, 242, 248, 0.35),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            ellipse at bottom left,
+            rgba(255, 238, 246, 0.25),
+            transparent 42%
+        ),
+
+        radial-gradient(
+            ellipse at bottom right,
+            rgba(255, 248, 251, 0.40),
+            transparent 42%
+        ),
+
+        #713f59;
+
+    color: #f8e9ef;
+
+    font-family: "Montserrat", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.page {
+    min-height: 100vh;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 70px 20px 40px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   INTRO TEXT
+========================= */
+
+.little-text {
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: rgba(255, 238, 245, 0.78);
+
+    margin-bottom: 20px;
+
+    animation: fadeUp 1s ease forwards;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 62px;
+
+    line-height: 0.9;
+
+    font-weight: 600;
+
+    color: #fff3f7;
+
+    text-shadow:
+        0 3px 20px rgba(40, 10, 25, 0.2);
+
+    animation: fadeUp 1.2s ease forwards;
+}
+
+
+h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 44px;
+
+    font-weight: 600;
+
+    font-style: italic;
+
+    color: #ffd6e5;
+
+    margin-top: 12px;
+
+    text-shadow:
+        0 3px 15px rgba(40, 10, 25, 0.2);
+
+    animation: fadeUp 1.4s ease forwards;
+}
+
+
+/* =========================
+   BIRTHDAY CARD
+========================= */
+
+.birthday-card {
+    width: 100%;
+
+    max-width: 390px;
+
+    margin-top: 38px;
+
+    padding: 32px 20px 28px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 242, 247, 0.88);
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.45);
+
+    box-shadow:
+        0 25px 60px
+        rgba(30, 10, 22, 0.28),
+
+        inset 0 1px 2px
+        rgba(255, 255, 255, 0.8);
+
+    backdrop-filter: blur(12px);
+
+    animation:
+        cardAppear 1.5s ease forwards;
+}
+
+
+/* =========================
+   WISH
+========================= */
+
+.wish-title {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+
+    font-weight: 600;
+
+    color: #713d59;
+
+    margin-bottom: 12px;
+}
+
+
+.wish-text {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    color: #87566e;
+
+    padding: 0 8px;
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 25px 0;
+}
+
+
+.divider span {
+    height: 1px;
+
+    width: 65px;
+
+    background:
+        rgba(164, 80, 120, 0.35);
+}
+
+
+.divider div {
+    font-size: 23px;
+
+    color: #b45d88;
+
+    animation:
+        flowerPulse 3s ease-in-out infinite;
+}
+
+
+/* =========================
+   COUNTER
+========================= */
+
+.counter {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+
+/* =========================
+   TIME BOXES
+========================= */
+
+.time-box {
+    padding: 17px 5px 14px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 241, 247, 0.75);
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.65);
+
+    box-shadow:
+        0 8px 20px
+        rgba(133, 58, 91, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.time-box:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(133, 58, 91, 0.14);
+}
+
+
+.time-box span {
+    display: block;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    font-weight: 600;
+
+    color: #793f5d;
+}
+
+
+.time-box p {
+    margin-top: 6px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #ad6c89;
+}
+
+
+/* =========================
+   COUNTER DESCRIPTION
+========================= */
+
+.counter-description {
+    margin-top: 22px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    font-style: italic;
+
+    color: #a1617e;
+}
+
+
+/* =========================
+   BOTTOM MESSAGE
+========================= */
+
+.bottom-text {
+    max-width: 330px;
+
+    margin-top: 35px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+
+    font-style: italic;
+
+    color: #ffe1eb;
+
+    text-shadow:
+        0 2px 12px
+        rgba(40, 10, 25, 0.25);
+
+    animation:
+        fadeUp 2s ease forwards;
+}
+
+
+/* =========================
+   SCROLL INDICATOR
+========================= */
+
+.scroll {
+    margin-top: 25px;
+
+    font-size: 20px;
+
+    color: #ffd3e3;
+
+    animation:
+        bounce 2s infinite;
+}
+
+
+/* =========================
+   LILY DECORATIONS
+========================= */
+
+.lily {
+    position: fixed;
+
+    font-family: serif;
+
+    color:
+        rgba(255, 240, 247, 0.18);
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    filter:
+        drop-shadow(
+            0 8px 20px
+            rgba(30, 10, 20, 0.2)
+        );
+}
+
+
+.lily-top {
+    top: -35px;
+
+    left: -30px;
+
+    font-size: 150px;
+
+    transform:
+        rotate(-25deg);
+}
+
+
+.lily-bottom {
+    bottom: -45px;
+
+    right: -35px;
+
+    font-size: 180px;
+
+    transform:
+        rotate(20deg);
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes bounce {
+
+    0%, 100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(7px);
+    }
+}
+
+
+@keyframes flowerPulse {
+
+    0%, 100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.12);
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 360px) {
+
+    .page {
+        padding-top: 55px;
+    }
+
+    h1 {
+        font-size: 54px;
+    }
+
+    h2 {
+        font-size: 38px;
+    }
+
+    .birthday-card {
+        margin-top: 30px;
+
+        padding:
+            27px 16px;
+    }
+
+    .wish-title {
+        font-size: 26px;
+    }
+
+    .wish-text {
+        font-size: 17px;
+    }
+
+    .time-box span {
+        font-size: 36px;
+    }
+}
