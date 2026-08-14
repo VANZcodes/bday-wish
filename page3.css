@@ -1,0 +1,1130 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+    min-height: 100vh;
+
+    background:
+
+        radial-gradient(
+            ellipse at top left,
+            rgba(255, 248, 251, 0.45),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            ellipse at top right,
+            rgba(255, 242, 248, 0.35),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            ellipse at bottom left,
+            rgba(255, 238, 246, 0.25),
+            transparent 42%
+        ),
+
+        radial-gradient(
+            ellipse at bottom right,
+            rgba(255, 248, 251, 0.40),
+            transparent 42%
+        ),
+
+        #713f59;
+
+
+    color: #f8e9ef;
+
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND PHOTO
+========================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: -5%;
+
+
+    background-image:
+
+        linear-gradient(
+            rgba(65, 25, 48, 0.72),
+            rgba(65, 25, 48, 0.72)
+        ),
+
+        url("images/lily.jpg");
+
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+
+    opacity: 0.38;
+
+    filter: blur(2px);
+
+
+    z-index: 0;
+
+    pointer-events: none;
+
+
+    animation:
+        lilyBackground
+        18s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+/* =========================
+   BACKGROUND LILIES
+========================= */
+
+.background-lily {
+
+    position: fixed;
+
+
+    width: 250px !important;
+
+    height: 250px !important;
+
+
+    max-width: 250px !important;
+
+    max-height: 250px !important;
+
+
+    object-fit: contain;
+
+
+    opacity: 0.13;
+
+
+    z-index: 1;
+
+    pointer-events: none;
+
+
+    filter:
+        drop-shadow(
+            0 8px 20px
+            rgba(30, 10, 20, 0.20)
+        );
+}
+
+
+.lily-top {
+
+    top: -65px;
+
+    left: -60px;
+
+
+    transform:
+        rotate(-25deg);
+}
+
+
+.lily-bottom {
+
+    bottom: -65px;
+
+    right: -60px;
+
+
+    transform:
+        rotate(20deg);
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+
+    padding:
+        60px
+        20px
+        50px;
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+
+    text-align: center;
+
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   SMALL TITLE
+========================= */
+
+.little-text {
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+
+    color:
+        rgba(255, 238, 245, 0.82);
+
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.heading-divider {
+
+    width: 100%;
+
+    height: 32px;
+
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+
+    gap: 13px;
+
+
+    margin-bottom: 15px;
+}
+
+
+.heading-divider span {
+
+    width: 60px;
+
+    height: 1px;
+
+
+    background:
+        rgba(255, 220, 233, 0.45);
+}
+
+
+.heading-divider img {
+
+    width: 32px !important;
+
+    height: 32px !important;
+
+
+    max-width: 32px !important;
+
+    max-height: 32px !important;
+
+
+    object-fit: contain;
+
+
+    opacity: 0.9;
+
+
+    animation:
+        lilyIconFloat
+        3.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+
+    font-size: 58px;
+
+
+    line-height: 0.9;
+
+
+    font-weight: 600;
+
+
+    color: #fff3f7;
+
+
+    text-shadow:
+        0 3px 20px
+        rgba(40, 10, 25, 0.35);
+}
+
+
+h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+
+    font-size: 29px;
+
+
+    font-weight: 600;
+
+
+    font-style: italic;
+
+
+    color: #ffd6e5;
+
+
+    margin-top: 13px;
+}
+
+
+/* =========================
+   GAME
+========================= */
+
+.game {
+
+    width: 100%;
+
+    max-width: 340px;
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+
+    margin-top: 45px;
+}
+
+
+/* =========================
+   WHEEL CONTAINER
+========================= */
+
+.wheel-container {
+
+    position: relative;
+
+
+    width: 300px;
+
+    height: 300px;
+}
+
+
+/* =========================
+   WHEEL
+========================= */
+
+.wheel {
+
+    width: 300px;
+
+    height: 300px;
+
+
+    position: absolute;
+
+    inset: 0;
+
+
+    border-radius: 50%;
+
+
+    border:
+        6px solid
+        rgba(255, 245, 249, 0.85);
+
+
+    box-shadow:
+
+        0 20px 45px
+        rgba(30, 10, 22, 0.40),
+
+        0 0 0 2px
+        rgba(255, 220, 235, 0.30);
+
+
+    background:
+
+        conic-gradient(
+
+            #9f5877 0deg 72deg,
+
+            #c47b99 72deg 144deg,
+
+            #8e4969 144deg 216deg,
+
+            #d18ba5 216deg 288deg,
+
+            #a96383 288deg 360deg
+        );
+
+
+    transition:
+        transform
+        4s
+        cubic-bezier(
+            0.12,
+            0.65,
+            0.12,
+            1
+        );
+
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   DIVIDING LINES
+========================= */
+
+.wheel::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+
+    background:
+
+        conic-gradient(
+
+            transparent 0deg 70deg,
+
+            rgba(255,255,255,0.75)
+            70deg 72deg,
+
+
+            transparent 72deg 142deg,
+
+            rgba(255,255,255,0.75)
+            142deg 144deg,
+
+
+            transparent 144deg 214deg,
+
+            rgba(255,255,255,0.75)
+            214deg 216deg,
+
+
+            transparent 216deg 286deg,
+
+            rgba(255,255,255,0.75)
+            286deg 288deg,
+
+
+            transparent 288deg 358deg,
+
+            rgba(255,255,255,0.75)
+            358deg 360deg
+        );
+
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   OPTIONS
+========================= */
+
+.wheel-option {
+
+    position: absolute;
+
+
+    left: 50%;
+
+    top: 50%;
+
+
+    width: 100px;
+
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+
+    font-size: 15px;
+
+
+    line-height: 1.05;
+
+
+    font-weight: 600;
+
+
+    color: #fff7fa;
+
+
+    text-align: center;
+
+
+    text-shadow:
+        0 2px 5px
+        rgba(50, 15, 35, 0.45);
+
+
+    z-index: 5;
+
+
+    pointer-events: none;
+
+
+    /*
+       The JavaScript will modify
+       this transform while spinning.
+    */
+}
+
+
+.wheel-option small {
+
+    font-size: 11px;
+
+    font-style: italic;
+}
+
+
+/* =========================
+   INITIAL POSITIONS
+========================= */
+
+
+/*
+   The wheel has 5 sections,
+   each 72 degrees.
+
+   These positions sit near the
+   CENTER of each colored section.
+*/
+
+
+.option-1 {
+
+    transform:
+        translate(-50%, -50%)
+        translate(57px, -82px);
+}
+
+
+.option-2 {
+
+    transform:
+        translate(-50%, -50%)
+        translate(80px, 25px);
+}
+
+
+.option-3 {
+
+    transform:
+        translate(-50%, -50%)
+        translate(0, 82px);
+}
+
+
+.option-4 {
+
+    transform:
+        translate(-50%, -50%)
+        translate(-80px, 25px);
+}
+
+
+.option-5 {
+
+    transform:
+        translate(-50%, -50%)
+        translate(-57px, -82px);
+}
+
+
+/* =========================
+   CENTER LILY
+========================= */
+
+.wheel-center {
+
+    position: absolute;
+
+
+    width: 58px;
+
+    height: 58px;
+
+
+    border-radius: 50%;
+
+
+    background:
+        rgba(255, 244, 248, 0.96);
+
+
+    border:
+        3px solid
+        rgba(154, 78, 111, 0.55);
+
+
+    left: 50%;
+
+    top: 50%;
+
+
+    transform:
+        translate(-50%, -50%);
+
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+
+    z-index: 8;
+
+
+    box-shadow:
+        0 5px 15px
+        rgba(40, 10, 25, 0.25);
+}
+
+
+.wheel-center img {
+
+    width: 34px !important;
+
+    height: 34px !important;
+
+
+    max-width: 34px !important;
+
+    max-height: 34px !important;
+
+
+    object-fit: contain;
+
+
+    opacity: 0.85;
+}
+
+
+/* =========================
+   POINTER
+========================= */
+
+.pointer {
+
+    position: absolute;
+
+
+    top: -9px;
+
+    left: 50%;
+
+
+    transform:
+        translateX(-50%);
+
+
+    width: 0;
+
+    height: 0;
+
+
+    border-left:
+        13px solid transparent;
+
+
+    border-right:
+        13px solid transparent;
+
+
+    border-top:
+        25px solid #fff0f5;
+
+
+    filter:
+        drop-shadow(
+            0 3px 5px
+            rgba(30, 10, 22, 0.40)
+        );
+
+
+    z-index: 10;
+}
+
+
+/* =========================
+   SPIN BUTTON
+========================= */
+
+.spin-button {
+
+    margin-top: 28px;
+
+
+    padding:
+        13px
+        35px;
+
+
+    border-radius: 50px;
+
+
+    border:
+        1px solid
+        rgba(255, 225, 235, 0.55);
+
+
+    background:
+        rgba(255, 242, 247, 0.18);
+
+
+    color: #ffe8ef;
+
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+
+    font-size: 12px;
+
+
+    letter-spacing: 3px;
+
+
+    cursor: pointer;
+
+
+    backdrop-filter:
+        blur(10px);
+
+
+    box-shadow:
+        0 8px 25px
+        rgba(30, 10, 22, 0.20);
+
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.spin-button:hover {
+
+    background:
+        rgba(255, 242, 247, 0.28);
+
+
+    transform:
+        translateY(-3px);
+}
+
+
+.spin-button:active {
+
+    transform:
+        translateY(0);
+}
+
+
+.spin-button:disabled {
+
+    opacity: 0.55;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.result {
+
+    width: 100%;
+
+    max-width: 350px;
+
+
+    min-height: 55px;
+
+
+    margin-top: 28px;
+
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+
+    color: #ffe2ec;
+
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+
+    font-size: 21px;
+
+
+    font-style: italic;
+
+
+    opacity: 0;
+
+
+    transition:
+        opacity 0.6s ease;
+}
+
+
+.result.show {
+
+    opacity: 1;
+}
+
+
+/* =========================
+   BOTTOM TEXT
+========================= */
+
+.bottom-text {
+
+    max-width: 330px;
+
+
+    margin-top: 30px;
+
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+
+    font-size: 18px;
+
+
+    line-height: 1.5;
+
+
+    font-style: italic;
+
+
+    color: #ffe1eb;
+}
+
+
+/* =========================
+   NEXT BUTTON
+========================= */
+
+.next-button {
+
+    display: inline-block;
+
+
+    margin-top: 28px;
+
+
+    padding:
+        11px
+        24px;
+
+
+    border-radius: 50px;
+
+
+    border:
+        1px solid
+        rgba(255, 225, 235, 0.45);
+
+
+    background:
+        rgba(255, 242, 247, 0.10);
+
+
+    color: #ffe1eb;
+
+
+    text-decoration: none;
+
+
+    font-size: 11px;
+
+
+    letter-spacing: 2px;
+
+
+    text-transform: uppercase;
+
+
+    backdrop-filter:
+        blur(8px);
+
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.next-button:hover {
+
+    background:
+        rgba(255, 242, 247, 0.20);
+
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes lilyBackground {
+
+    0% {
+
+        transform:
+            scale(1.05)
+            translate(0, 0);
+    }
+
+    50% {
+
+        transform:
+            scale(1.09)
+            translate(-0.8%, -0.4%);
+    }
+
+    100% {
+
+        transform:
+            scale(1.06)
+            translate(0.8%, 0.5%);
+    }
+}
+
+
+@keyframes lilyIconFloat {
+
+    0%, 100% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+
+        transform:
+            translateY(-3px)
+            rotate(2deg);
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 360px) {
+
+    .page {
+
+        padding:
+            50px
+            16px
+            45px;
+    }
+
+
+    h1 {
+
+        font-size: 52px;
+    }
+
+
+    h2 {
+
+        font-size: 27px;
+    }
+
+
+    .wheel-container {
+
+        width: 270px;
+
+        height: 270px;
+    }
+
+
+    .wheel {
+
+        width: 270px;
+
+        height: 270px;
+    }
+
+
+    .wheel-option {
+
+        width: 85px;
+
+        font-size: 14px;
+    }
+
+
+    .option-1 {
+
+        transform:
+            translate(-50%, -50%)
+            translate(51px, -74px);
+    }
+
+
+    .option-2 {
+
+        transform:
+            translate(-50%, -50%)
+            translate(71px, 23px);
+    }
+
+
+    .option-3 {
+
+        transform:
+            translate(-50%, -50%)
+            translate(0, 74px);
+    }
+
+
+    .option-4 {
+
+        transform:
+            translate(-50%, -50%)
+            translate(-71px, 23px);
+    }
+
+
+    .option-5 {
+
+        transform:
+            translate(-50%, -50%)
+            translate(-51px, -74px);
+    }
+
+
+    .wheel-center {
+
+        width: 54px;
+
+        height: 54px;
+    }
+
+
+    .wheel-center img {
+
+        width: 31px !important;
+
+        height: 31px !important;
+    }
+}
+
+.result strong {
+    display: block;
+
+    margin-top: 6px;
+
+    font-size: 26px;
+
+    color: #fff3f7;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 600;
+
+    font-style: normal;
+}

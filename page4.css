@@ -1,0 +1,925 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            ellipse at top left,
+            rgba(255, 248, 251, 0.45),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at top right,
+            rgba(255, 242, 248, 0.35),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at bottom left,
+            rgba(255, 238, 246, 0.25),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at bottom right,
+            rgba(255, 248, 251, 0.40),
+            transparent 42%
+        ),
+        #713f59;
+
+    color: #f8e9ef;
+
+    font-family: "Montserrat", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   MOVING BACKGROUND
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 115%;
+    height: 115%;
+
+    left: -7.5%;
+    top: -7.5%;
+
+    background-image:
+        linear-gradient(
+            rgba(65, 25, 48, 0.68),
+            rgba(65, 25, 48, 0.68)
+        ),
+        url("image/lily.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0.42;
+
+    filter: blur(2px);
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    animation:
+        backgroundLilyMove
+        16s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+@keyframes backgroundLilyMove {
+
+    0% {
+        transform:
+            scale(1.02)
+            translate3d(0%, 0%, 0%);
+    }
+
+    25% {
+        transform:
+            scale(1.06)
+            translate3d(-1.2%, -0.7%, 0%);
+    }
+
+    50% {
+        transform:
+            scale(1.04)
+            translate3d(0.8%, -1%, 0%);
+    }
+
+    75% {
+        transform:
+            scale(1.07)
+            translate3d(1.2%, 0.7%, 0%);
+    }
+
+    100% {
+        transform:
+            scale(1.03)
+            translate3d(-0.6%, 1%, 0%);
+    }
+}
+
+
+/* =========================
+   CORNER LILIES
+========================= */
+
+.corner-lily {
+    position: fixed;
+
+    width: 250px;
+    height: 250px;
+
+    object-fit: contain;
+
+    opacity: 0.13;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 8px 20px
+            rgba(30, 10, 20, 0.20)
+        );
+
+    animation:
+        cornerFloat
+        7s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.corner-lily-top {
+    top: -65px;
+    left: -60px;
+
+    transform: rotate(-25deg);
+}
+
+
+.corner-lily-bottom {
+    bottom: -65px;
+    right: -60px;
+
+    transform: rotate(20deg);
+
+    animation-delay: -3s;
+}
+
+
+@keyframes cornerFloat {
+
+    from {
+        margin-top: 0;
+    }
+
+    to {
+        margin-top: 10px;
+    }
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        55px
+        20px
+        50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.little-text {
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(255, 238, 245, 0.82);
+
+    margin-bottom: 10px;
+}
+
+
+.heading-divider {
+    width: 100%;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    margin-bottom: 15px;
+}
+
+
+.heading-divider span {
+    width: 60px;
+
+    height: 1px;
+
+    background:
+        rgba(255, 220, 233, 0.45);
+}
+
+
+.heading-lily {
+    width: 32px;
+    height: 32px;
+
+    object-fit: contain;
+
+    opacity: 0.9;
+}
+
+
+h1 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 55px;
+
+    line-height: 0.9;
+
+    font-weight: 600;
+
+    color: #fff3f7;
+
+    text-shadow:
+        0 3px 20px
+        rgba(40, 10, 25, 0.35);
+}
+
+
+h2 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    font-style: italic;
+
+    color: #ffd6e5;
+
+    margin-top: 14px;
+}
+
+
+/* =========================
+   GIFT GRID
+========================= */
+
+.gift-grid {
+    width: 100%;
+
+    max-width: 350px;
+
+    margin-top: 42px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+
+    justify-items: center;
+}
+
+
+.gift-box {
+    width: 145px;
+    height: 150px;
+
+    position: relative;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.gift-box:hover {
+    transform:
+        translateY(-7px)
+        rotate(-1deg);
+}
+
+
+.gift-box:active {
+    transform:
+        scale(0.95);
+}
+
+
+.gift-body {
+    position: absolute;
+
+    bottom: 0;
+    left: 10px;
+
+    width: 125px;
+    height: 105px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #b96d8d,
+            #7f3f60
+        );
+
+    border:
+        1px solid
+        rgba(255, 225, 237, 0.45);
+
+    box-shadow:
+        0 15px 30px
+        rgba(40, 10, 25, 0.35),
+
+        inset 0 1px 5px
+        rgba(255,255,255,0.15);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+}
+
+
+.gift-lid {
+    position: absolute;
+
+    top: 31px;
+    left: 4px;
+
+    width: 137px;
+    height: 30px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #cf86a4,
+            #934e70
+        );
+
+    border:
+        1px solid
+        rgba(255, 225, 237, 0.55);
+
+    box-shadow:
+        0 8px 15px
+        rgba(40, 10, 25, 0.25);
+
+    z-index: 3;
+}
+
+
+.gift-lily {
+    width: 40px !important;
+    height: 40px !important;
+
+    object-fit: contain;
+
+    opacity: 0.9;
+}
+
+
+.gift-body span {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #fff0f5;
+}
+
+
+/* =========================
+   OVERLAY
+========================= */
+
+.gift-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(45, 15, 32, 0.70);
+
+    backdrop-filter:
+        blur(7px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 20;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.4s ease;
+}
+
+
+.gift-overlay.show {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope {
+    position: relative;
+
+    width: 310px;
+    height: 215px;
+
+    perspective: 1000px;
+
+    transform:
+        translateY(30px)
+        scale(0.92);
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+.gift-overlay.show .envelope {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* Envelope body */
+
+.envelope::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #c77c99;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 20px 45px
+        rgba(25, 5, 18, 0.45);
+
+    z-index: 1;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter {
+    position: absolute;
+
+    left: 20px;
+    right: 20px;
+
+    bottom: 15px;
+
+    height: 190px;
+
+    padding:
+        20px
+        15px;
+
+    background: #fff5f8;
+
+    border-radius: 5px;
+
+    color: #713f59;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    /*
+       IMPORTANT:
+       Letter starts inside
+       the envelope.
+    */
+
+    transform:
+        translateY(0);
+
+    transition:
+        transform 0.8s
+        cubic-bezier(
+            0.22,
+            0.61,
+            0.36,
+            1
+        );
+
+    z-index: 2;
+}
+
+
+/* Letter comes out */
+
+.envelope.open .letter {
+    transform:
+        translateY(-65px);
+}
+
+
+/* =========================
+   LETTER CONTENT
+========================= */
+
+.letter-lily {
+    width: 38px !important;
+    height: 38px !important;
+
+    object-fit: contain;
+
+    margin-bottom: 8px;
+}
+
+
+.letter-small {
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color:
+        rgba(113, 63, 89, 0.70);
+
+    margin-bottom: 8px;
+}
+
+
+.letter h3 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 26px;
+
+    line-height: 1.05;
+
+    color: #713f59;
+
+    font-weight: 600;
+
+    max-width: 250px;
+}
+
+
+.letter-heart {
+    font-size: 20px;
+
+    margin-top: 8px;
+
+    color: #a85b7d;
+}
+
+
+/* =========================
+   ENVELOPE FLAP
+========================= */
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left:
+        155px solid transparent;
+
+    border-right:
+        155px solid transparent;
+
+    border-top:
+        105px solid #d68ba7;
+
+    transform-origin:
+        top center;
+
+    transition:
+        transform 0.8s ease;
+
+    z-index: 5;
+}
+
+
+.envelope.open .envelope-flap {
+    transform:
+        rotateX(180deg);
+
+    z-index: 1;
+}
+
+
+/* =========================
+   ENVELOPE FRONT
+========================= */
+
+.envelope-front {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 115px;
+
+    background:
+        #b96989;
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 65%,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+    border-radius:
+        0 0 8px 8px;
+
+    z-index: 4;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.close-gift {
+    margin-top: 85px;
+
+    padding:
+        11px
+        28px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(255, 225, 235, 0.5);
+
+    background:
+        rgba(255, 242, 247, 0.15);
+
+    color: #ffe7ef;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    backdrop-filter:
+        blur(8px);
+}
+
+
+/* =========================
+   BOTTOM TEXT
+========================= */
+
+.bottom-text {
+    max-width: 330px;
+
+    margin-top: 40px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    font-style: italic;
+
+    color: #ffe1eb;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+    .page {
+        padding:
+            45px
+            15px
+            40px;
+    }
+
+    h1 {
+        font-size: 49px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    .gift-grid {
+        gap: 16px;
+    }
+
+    .gift-box {
+        width: 135px;
+        height: 140px;
+    }
+
+    .gift-body {
+        width: 115px;
+        height: 98px;
+    }
+
+    .gift-lid {
+        width: 127px;
+    }
+
+    .envelope {
+        width: 290px;
+    }
+
+    .envelope-flap {
+        border-left-width: 145px;
+        border-right-width: 145px;
+    }
+}
+
+.voucher-text {
+    margin-top: 5px;
+
+    max-width: 230px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.25;
+
+    letter-spacing: 0.1px;
+
+    color:
+        rgba(109, 56, 83, 0.864);
+}
+
+.next-page-container {
+    margin-top: 45px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.next-page-text {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    color: #ffe1eb;
+
+    opacity: 0.9;
+}
+
+.next-page-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 28px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(255, 225, 235, 0.5);
+
+    background:
+        rgba(255, 242, 247, 0.14);
+
+    color: #ffe7ef;
+
+    text-decoration: none;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        all 0.3s ease;
+}
+
+.next-page-button:hover {
+    background:
+        rgba(255, 242, 247, 0.25);
+
+    transform:
+        translateY(-3px);
+}
+
+.next-page-button:active {
+    transform:
+        scale(0.96);
+}

@@ -1,0 +1,573 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+    min-height: 100vh;
+
+    background:
+
+        radial-gradient(
+            ellipse at top left,
+            rgba(255, 248, 251, 0.45),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            ellipse at top right,
+            rgba(255, 242, 248, 0.35),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            ellipse at bottom left,
+            rgba(255, 238, 246, 0.25),
+            transparent 42%
+        ),
+
+        radial-gradient(
+            ellipse at bottom right,
+            rgba(255, 248, 251, 0.40),
+            transparent 42%
+        ),
+
+        #713f59;
+
+
+    color: #f8e9ef;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   MOVING LILY BACKGROUND
+========================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 115%;
+    height: 115%;
+
+    left: -7.5%;
+    top: -7.5%;
+
+    background-image:
+
+        linear-gradient(
+            rgba(65, 25, 48, 0.68),
+            rgba(65, 25, 48, 0.68)
+        ),
+
+        url("image/lily.jpg");
+
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    opacity: 0.42;
+
+    filter: blur(2px);
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    animation:
+        backgroundLilyMove
+        16s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+@keyframes backgroundLilyMove {
+
+    0% {
+
+        transform:
+            scale(1.02)
+            translate3d(0%, 0%, 0%);
+
+    }
+
+    25% {
+
+        transform:
+            scale(1.06)
+            translate3d(-1.2%, -0.7%, 0%);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.04)
+            translate3d(0.8%, -1%, 0%);
+
+    }
+
+    75% {
+
+        transform:
+            scale(1.07)
+            translate3d(1.2%, 0.7%, 0%);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1.03)
+            translate3d(-0.6%, 1%, 0%);
+
+    }
+}
+
+
+/* =========================
+   CORNER LILIES
+   KEEPING YOUR ICON
+========================= */
+
+.corner-lily {
+
+    position: fixed;
+
+    width: 210px;
+    height: 210px;
+
+    object-fit: contain;
+
+    opacity: 0.13;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 8px 20px
+            rgba(30, 10, 20, 0.20)
+        );
+
+    animation:
+        cornerFloat
+        7s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.corner-lily-top {
+
+    top: -60px;
+
+    left: -55px;
+
+    transform:
+        rotate(-20deg);
+}
+
+
+.corner-lily-bottom {
+
+    bottom: -60px;
+
+    right: -55px;
+
+    transform:
+        rotate(20deg);
+
+    animation-delay: -3s;
+}
+
+
+@keyframes cornerFloat {
+
+    from {
+        margin-top: 0;
+    }
+
+    to {
+        margin-top: 10px;
+    }
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page5 {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        55px
+        20px
+        60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   SMALL HEADING
+========================= */
+
+.little-text {
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(255, 238, 245, 0.82);
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.heading-divider {
+
+    width: 100%;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    margin-bottom: 15px;
+}
+
+
+.heading-divider span {
+
+    width: 60px;
+
+    height: 1px;
+
+    background:
+        rgba(255, 220, 233, 0.45);
+}
+
+
+.heading-lily {
+
+    width: 32px;
+
+    height: 32px;
+
+    object-fit: contain;
+
+    opacity: 0.9;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 48px;
+
+    line-height: 0.95;
+
+    font-weight: 600;
+
+    color: #fff3f7;
+
+    text-shadow:
+        0 3px 20px
+        rgba(40, 10, 25, 0.35);
+}
+
+
+/* =========================
+   STICKER + PHOTO CONTAINER
+========================= */
+
+.memory-container {
+
+    width: 330px;
+
+    height: 330px;
+
+    margin-top: 35px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================
+   PHOTO
+   BEHIND THE STICKER
+========================= */
+
+.photo-wrapper {
+
+    position: absolute;
+
+    width: 190px;
+
+    height: 205px;
+
+    right: 8px;
+
+    top: 55px;
+
+    z-index: 1;
+
+    transform:
+        rotate(8deg);
+}
+
+
+.main-photo {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 17px;
+
+    border:
+        5px solid
+        rgba(255, 244, 248, 0.92);
+
+    box-shadow:
+        0 18px 35px
+        rgba(35, 10, 25, 0.40);
+}
+
+
+/* =========================
+   BOUQUET / STICKER
+   IN FRONT
+========================= */
+
+.sticker {
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    left: 18px;
+
+    top: 15px;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    animation:
+        stickerFloat
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+.sticker img {
+
+    width: 175px;
+
+    height: 175px;
+
+    object-fit: contain;
+
+    background: transparent;
+
+    filter: none;
+}
+
+
+@keyframes stickerFloat {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(-2deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-7px)
+            rotate(2deg);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-2deg);
+
+    }
+}
+
+
+/* =========================
+   CAPTION
+========================= */
+
+.photo-caption {
+
+    margin-top: 5px;
+
+    max-width: 290px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    line-height: 1.4;
+
+    font-style: italic;
+
+    color: #ffe1eb;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+    .page5 {
+
+        padding:
+            45px
+            15px
+            50px;
+    }
+
+
+    h1 {
+
+        font-size: 44px;
+    }
+
+
+    .memory-container {
+
+        width: 310px;
+
+        height: 310px;
+
+        margin-top: 28px;
+    }
+
+
+    .sticker {
+
+        width: 165px;
+
+        height: 165px;
+
+        left: 5px;
+
+        top: 18px;
+    }
+
+
+    .sticker img {
+
+        width: 160px;
+
+        height: 160px;
+    }
+
+
+    .photo-wrapper {
+
+        width: 175px;
+
+        height: 190px;
+
+        right: 5px;
+
+        top: 55px;
+    }
+
+
+    .corner-lily {
+
+        width: 190px;
+
+        height: 190px;
+    }
+
+}

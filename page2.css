@@ -1,0 +1,781 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            ellipse at top left,
+            rgba(255, 248, 251, 0.45),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at top right,
+            rgba(255, 242, 248, 0.35),
+            transparent 40%
+        ),
+        radial-gradient(
+            ellipse at bottom left,
+            rgba(255, 238, 246, 0.25),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at bottom right,
+            rgba(255, 248, 251, 0.40),
+            transparent 42%
+        ),
+        #713f59;
+
+    color: #f8e9ef;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   LILY BACKGROUND
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: -5%;
+
+    background-image:
+        linear-gradient(
+            rgba(65, 25, 48, 0.72),
+            rgba(65, 25, 48, 0.72)
+        ),
+        url("images/lily.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    opacity: 0.38;
+
+    filter: blur(2px);
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    animation:
+        lilyBackground
+        18s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.page {
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        65px
+        20px
+        60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.little-text {
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(255, 238, 245, 0.82);
+
+    margin-bottom: 20px;
+
+    animation:
+        fadeUp
+        1s
+        ease
+        forwards;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 60px;
+
+    line-height: 0.9;
+
+    font-weight: 600;
+
+    color: #fff3f7;
+
+    text-shadow:
+        0 3px 20px
+        rgba(40, 10, 25, 0.35);
+
+    animation:
+        fadeUp
+        1.2s
+        ease
+        forwards;
+}
+
+
+h2 {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 34px;
+
+    font-weight: 600;
+
+    font-style: italic;
+
+    color: #ffd6e5;
+
+    margin-top: 14px;
+
+    text-shadow:
+        0 3px 15px
+        rgba(40, 10, 25, 0.35);
+
+    animation:
+        fadeUp
+        1.4s
+        ease
+        forwards;
+}
+
+
+/* =========================
+   MEMORY ROW
+========================= */
+
+.memory {
+    width: 100%;
+
+    max-width: 430px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 65px;
+
+    position: relative;
+}
+
+
+/* =========================
+   PHOTO BOX
+========================= */
+
+.photo-box {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    padding: 5px;
+
+    border-radius: 24px;
+
+    background:
+        rgba(255, 242, 247, 0.72);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.55);
+
+    box-shadow:
+        0 12px 30px
+        rgba(30, 10, 22, 0.20);
+
+    backdrop-filter:
+        blur(8px);
+
+    overflow: hidden;
+
+    will-change: transform;
+
+    transition:
+        box-shadow 0.3s ease;
+}
+
+
+/* =========================
+   PHOTO PLACEHOLDER
+========================= */
+
+.placeholder {
+    width: 100%;
+
+    height: 100%;
+
+    border-radius: 19px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(170, 99, 130, 0.30),
+            rgba(108, 56, 82, 0.35)
+        );
+
+    border:
+        1px dashed
+        rgba(255, 224, 235, 0.55);
+
+    color:
+        rgba(255, 229, 237, 0.75);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    font-style: italic;
+}
+
+
+/* =========================
+   FLOATING ANIMATIONS
+========================= */
+
+.float-1 {
+    animation:
+        floatOne
+        5.5s
+        ease-in-out
+        infinite;
+}
+
+
+.float-2 {
+    animation:
+        floatTwo
+        6.3s
+        ease-in-out
+        infinite;
+}
+
+
+.float-3 {
+    animation:
+        floatThree
+        5.8s
+        ease-in-out
+        infinite;
+}
+
+
+.float-4 {
+    animation:
+        floatFour
+        6.6s
+        ease-in-out
+        infinite;
+}
+
+
+.float-5 {
+    animation:
+        floatFive
+        6.1s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================
+   MEMORY TEXT
+========================= */
+
+.memory-text {
+    text-align: left;
+
+    padding:
+        0 3px;
+}
+
+
+.memory-text p {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    line-height: 1.55;
+
+    color: #ffe2ec;
+
+    text-shadow:
+        0 2px 10px
+        rgba(40, 10, 25, 0.30);
+}
+
+
+/* =========================
+   BOTTOM MESSAGE
+========================= */
+
+.bottom-text {
+    max-width: 350px;
+
+    margin-top: 70px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    font-style: italic;
+
+    color: #ffe1eb;
+
+    text-shadow:
+        0 2px 12px
+        rgba(40, 10, 25, 0.30);
+
+    animation:
+        fadeUp
+        2s
+        ease
+        forwards;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button {
+    display: inline-block;
+
+    margin-top: 28px;
+
+    padding:
+        11px
+        22px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(255, 225, 235, 0.45);
+
+    background:
+        rgba(255, 242, 247, 0.10);
+
+    color: #ffe1eb;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    backdrop-filter:
+        blur(8px);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.back-button:hover {
+    background:
+        rgba(255, 242, 247, 0.20);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================
+   DECORATIVE LILIES
+========================= */
+
+.lily {
+    position: fixed;
+
+    font-family: serif;
+
+    color:
+        rgba(255, 240, 247, 0.16);
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    filter:
+        drop-shadow(
+            0 8px 20px
+            rgba(30, 10, 20, 0.20)
+        );
+}
+
+
+.lily-top {
+    top: -35px;
+
+    left: -30px;
+
+    font-size: 150px;
+
+    transform:
+        rotate(-25deg);
+}
+
+
+.lily-bottom {
+    bottom: -45px;
+
+    right: -35px;
+
+    font-size: 180px;
+
+    transform:
+        rotate(20deg);
+}
+
+
+/* =========================
+   BACKGROUND ANIMATION
+========================= */
+
+@keyframes lilyBackground {
+
+    0% {
+        transform:
+            scale(1.05)
+            translate(0, 0);
+    }
+
+    50% {
+        transform:
+            scale(1.09)
+            translate(-0.8%, -0.4%);
+    }
+
+    100% {
+        transform:
+            scale(1.06)
+            translate(0.8%, 0.5%);
+    }
+}
+
+
+/* =========================
+   IMAGE FLOAT 1
+========================= */
+
+@keyframes floatOne {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(-0.7deg);
+    }
+}
+
+
+/* =========================
+   IMAGE FLOAT 2
+========================= */
+
+@keyframes floatTwo {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(15px)
+            rotate(0.7deg);
+    }
+}
+
+
+/* =========================
+   IMAGE FLOAT 3
+========================= */
+
+@keyframes floatThree {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-14px)
+            rotate(0.6deg);
+    }
+}
+
+
+/* =========================
+   IMAGE FLOAT 4
+========================= */
+
+@keyframes floatFour {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(16px)
+            rotate(-0.6deg);
+    }
+}
+
+
+/* =========================
+   IMAGE FLOAT 5
+========================= */
+
+@keyframes floatFive {
+
+    0%, 100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(-0.5deg);
+    }
+}
+
+
+/* =========================
+   TEXT ANIMATION
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 360px) {
+
+    .page {
+        padding:
+            55px
+            16px
+            50px;
+    }
+
+
+    h1 {
+        font-size: 54px;
+    }
+
+
+    h2 {
+        font-size: 30px;
+    }
+
+
+    .memory {
+        gap: 12px;
+
+        margin-top: 55px;
+    }
+
+
+    .photo-box {
+        border-radius: 20px;
+
+        padding: 4px;
+    }
+
+
+    .placeholder {
+        border-radius: 16px;
+
+        font-size: 16px;
+    }
+
+
+    .memory-text p {
+        font-size: 17px;
+
+        line-height: 1.45;
+    }
+}
+
+/* =========================
+   HEADING DIVIDER
+========================= */
+
+.heading-divider {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 5px;
+
+    margin-bottom: 18px;
+}
+
+
+.heading-divider span {
+
+    width: 60px;
+
+    height: 1px;
+
+    background:
+        rgba(255, 220, 233, 0.45);
+}
+
+
+.heading-divider img {
+    display: block;
+
+    width: 32px !important;
+    height: 32px !important;
+
+    max-width: 32px !important;
+    max-height: 32px !important;
+
+    min-width: 32px;
+    min-height: 32px;
+
+    object-fit: contain;
+
+    flex: 0 0 32px;
+
+    opacity: 0.90;
+
+    filter:
+        drop-shadow(
+            0 3px 8px
+            rgba(40, 10, 25, 0.20)
+        );
+
+    animation:
+        lilyIconFloat
+        3.5s
+        ease-in-out
+        infinite;
+}
+
+.heading-divider {
+    width: 100%;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    margin-top: 5px;
+    margin-bottom: 18px;
+
+    overflow: hidden;
+}
