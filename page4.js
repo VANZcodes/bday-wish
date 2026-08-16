@@ -1,12 +1,12 @@
 const gifts = [
 
-    "A Movie Date",
+    "A Movie Day, Your Choice",
 
-    "A Date to Your Desired Place",
+    "A Shopping Day, Just for You",
 
-    "A Date Over Your Favorite Meal",
+    "A Day at Your Desired Place",
 
-    "A Shopping Date"
+    "Your Favorite Meal, My Treat👀"
 
 ];
 

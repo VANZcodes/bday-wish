@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday ❤️</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- Decorative lilies -->
+    <div class="lily lily-top">𓆸</div>
+    <div class="lily lily-bottom">𓆸</div>
+
+
+    <main class="page">
+
+        <!-- Small introduction -->
+        <p class="little-text">
+            Today is a special day...
+        </p>
+
+
+        <!-- Birthday title -->
+        <h1>
+            Happy Birthday
+        </h1>
+
+        <h2>
+            Sanjanaa💫
+        </h2>
+
+
+        <!-- Main birthday card -->
+        <section class="birthday-card">
+
+            <!-- Wish -->
+            <div class="wish">
+
+                <p class="wish-title">
+                    Happy Birthday
+                </p>
+
+                <p class="wish-text">
+                    I hope this day brings you all the happiness
+                    you deserve, and that this year and upcoming
+                    years become one of the most beautiful chapters of your life.
+                </p>
+
+            </div>
+
+
+            <!-- Divider -->
+            <div class="divider">
+                <span></span>
+                <div>𓆸</div>
+                <span></span>
+            </div>
+
+
+            <!-- Counter -->
+            <div class="counter">
+
+                <div class="time-box">
+                    <span id="days">0</span>
+                    <p>Days</p>
+                </div>
+
+
+                <div class="time-box">
+                    <span id="hours">0</span>
+                    <p>Hours</p>
+                </div>
+
+
+                <div class="time-box">
+                    <span id="minutes">0</span>
+                    <p>Minutes</p>
+                </div>
+
+
+                <div class="time-box">
+                    <span id="seconds">0</span>
+                    <p>Seconds</p>
+                </div>
+
+            </div>
+
+
+            <p class="counter-description">
+                Time since the day you came into this world.
+            </p>
+
+        </section>
+
+
+        <!-- Bottom message -->
+        <p class="bottom-text">
+            And somehow, every second since then
+            has made the world a little more beautiful.
+        </p>
+
+
+        <div class="scroll">
+            ↓
+        </div>
+
+        <!-- Page 2 navigation -->
+
+        <div class="page-divider">
+            <span></span>
+            <div>𓆸</div>
+            <span></span>
+        </div>
+
+        <a href="page2.html" class="next-button">
+            Continue →
+        </a>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+// ========================================
+// HER BIRTH DATE
+// ========================================
+//
+// Change this.
+//
+// Example:
+// 17 April 2006, 2:30 PM
+//
+// becomes:
+//
+// 2006-04-17T14:30:00
+//
+
+const birthDate = new Date("2008-11-09T14:30:00");
+
+
+// ========================================
+// UPDATE COUNTER
+// ========================================
+
+function updateCounter() {
+
+    const now = new Date();
+
+    const difference = now - birthDate;
+
+
+    // Convert milliseconds
+    const totalSeconds = Math.floor(difference / 1000);
+
+
+    const days = Math.floor(
+        totalSeconds / (60 * 60 * 24)
+    );
+
+
+    const hours = Math.floor(
+        (totalSeconds % (60 * 60 * 24)) / (60 * 60)
+    );
+
+
+    const minutes = Math.floor(
+        (totalSeconds % (60 * 60)) / 60
+    );
+
+
+    const seconds = totalSeconds % 60;
+
+
+    // Put the numbers into HTML
+
+    document.getElementById("days").textContent =
+        days.toLocaleString();
+
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+
+// Run immediately
+updateCounter();
+
+
+// Update every second
+setInterval(updateCounter, 1000);

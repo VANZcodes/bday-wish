@@ -1,75 +1,262 @@
-// ========================================
-// HER BIRTH DATE
-// ========================================
-//
-// Change this.
-//
-// Example:
-// 17 April 2006, 2:30 PM
-//
-// becomes:
-//
-// 2006-04-17T14:30:00
-//
+/* =========================================
+   OPENING COUNTDOWN
+========================================= */
 
-const birthDate = new Date("2008-11-09T14:30:00");
+const introScreen =
+    document.getElementById("intro-screen");
 
+const countdown =
+    document.getElementById("countdown");
 
-// ========================================
-// UPDATE COUNTER
-// ========================================
+const introMessage =
+    document.getElementById("intro-message");
 
-function updateCounter() {
-
-    const now = new Date();
-
-    const difference = now - birthDate;
+const mainContent =
+    document.getElementById("main-content");
 
 
-    // Convert milliseconds
-    const totalSeconds = Math.floor(difference / 1000);
+let count = 3;
 
 
-    const days = Math.floor(
-        totalSeconds / (60 * 60 * 24)
+/* Show 3 */
+
+function runCountdown() {
+
+    countdown.textContent = count;
+
+
+    /*
+     * Restart animation every time
+     * the number changes.
+     */
+
+    countdown.classList.remove(
+        "countdown-number"
+    );
+
+    void countdown.offsetWidth;
+
+    countdown.classList.add(
+        "countdown-number"
     );
 
 
-    const hours = Math.floor(
-        (totalSeconds % (60 * 60 * 24)) / (60 * 60)
-    );
+    if (count > 1) {
 
+        count--;
 
-    const minutes = Math.floor(
-        (totalSeconds % (60 * 60)) / 60
-    );
+        setTimeout(
+            runCountdown,
+            1000
+        );
 
+    } else {
 
-    const seconds = totalSeconds % 60;
+        /*
+         * Wait a little after 1,
+         * then reveal the birthday page.
+         */
 
+        setTimeout(
+            revealBirthday,
+            900
+        );
 
-    // Put the numbers into HTML
+    }
 
-    document.getElementById("days").textContent =
-        days.toLocaleString();
-
-
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2, "0");
-
-
-    document.getElementById("minutes").textContent =
-        String(minutes).padStart(2, "0");
-
-
-    document.getElementById("seconds").textContent =
-        String(seconds).padStart(2, "0");
 }
 
 
-// Run immediately
+/* =========================================
+   REVEAL BIRTHDAY
+========================================= */
+
+function revealBirthday() {
+
+    countdown.classList.add("final");
+
+    introMessage.textContent =
+        "Happy Birthday ❤️";
+
+
+    /*
+     * Let the final number
+     * expand/fade first.
+     */
+
+    setTimeout(() => {
+
+        mainContent.classList.add("show");
+
+    }, 350);
+
+
+    /*
+     * Remove intro screen.
+
+     * This happens after the
+     * birthday page begins appearing.
+     */
+
+    setTimeout(() => {
+
+        introScreen.classList.add("reveal");
+
+    }, 700);
+
+
+    /*
+     * Completely remove the
+     * intro from the page.
+     */
+
+    setTimeout(() => {
+
+        introScreen.style.display =
+            "none";
+
+    }, 1900);
+
+}
+
+
+/* Start */
+
+setTimeout(
+    runCountdown,
+    700
+);
+
+
+
+/* =========================================
+   BIRTHDAY COUNTER
+========================================= */
+
+/*
+   September 11, 2008
+
+   IMPORTANT:
+   JavaScript months start at 0.
+
+   January = 0
+   February = 1
+   ...
+   September = 8
+*/
+
+const birthDate =
+    new Date(
+        2008,
+        8,
+        11,
+        0,
+        0,
+        0
+    );
+
+
+function updateCounter() {
+
+    const now =
+        new Date();
+
+
+    /*
+     * Calculate total time
+     * since birth.
+     */
+
+    const difference =
+        now.getTime()
+        - birthDate.getTime();
+
+
+    /*
+     * Convert into total units.
+     */
+
+    const totalSeconds =
+        Math.floor(
+            difference / 1000
+        );
+
+
+    const totalMinutes =
+        Math.floor(
+            totalSeconds / 60
+        );
+
+
+    const totalHours =
+        Math.floor(
+            totalMinutes / 60
+        );
+
+
+    const totalDays =
+        Math.floor(
+            totalHours / 24
+        );
+
+
+    /*
+     * Get remaining hours,
+     * minutes and seconds.
+     */
+
+    const hours =
+        totalHours % 24;
+
+
+    const minutes =
+        totalMinutes % 60;
+
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    /*
+     * Update page.
+     *
+     * Days = TOTAL days alive
+     * Hours = remaining hours
+     * Minutes = remaining minutes
+     * Seconds = remaining seconds
+     */
+
+    document.getElementById(
+        "days"
+    ).textContent =
+        totalDays.toLocaleString();
+
+
+    document.getElementById(
+        "hours"
+    ).textContent =
+        hours;
+
+
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        minutes;
+
+
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        seconds;
+
+}
+
+
+/* Update every second */
+
 updateCounter();
 
-
-// Update every second
-setInterval(updateCounter, 1000);
+setInterval(
+    updateCounter,
+    1000
+);

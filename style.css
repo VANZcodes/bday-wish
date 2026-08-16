@@ -780,3 +780,298 @@ h2 {
         0 12px 30px
         rgba(40, 10, 25, 0.22);
 }
+
+/* =========================================
+   OPENING COUNTDOWN
+========================================= */
+
+#intro-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background-image:
+        url("image/preview.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    opacity: 1;
+
+    transition:
+        opacity 1.2s ease;
+}
+
+
+/* Dark layer over preview */
+
+.intro-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(45, 15, 32, 0.45);
+
+    backdrop-filter:
+        blur(1px);
+}
+
+
+/* Countdown content */
+
+.intro-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+
+/* Small text */
+
+.intro-small {
+
+    margin-bottom: 20px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(255, 245, 248, 0.88);
+}
+
+
+/* 3 2 1 */
+
+.countdown-number {
+
+    font-family:
+        "Georgia",
+        serif;
+
+    font-size: 125px;
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    color: #fff5f8;
+
+    text-shadow:
+        0 8px 35px
+        rgba(40, 10, 25, 0.45);
+
+    animation:
+        countdownAppear
+        0.8s
+        ease;
+}
+
+
+/* Get ready */
+
+.intro-message {
+
+    margin-top: 20px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 22px;
+
+    font-style: italic;
+
+    color:
+        rgba(255, 230, 239, 0.92);
+}
+
+
+/* Number animation */
+
+@keyframes countdownAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.65);
+
+    }
+
+    60% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.08);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   HAPPY BIRTHDAY REVEAL
+========================================= */
+
+#intro-screen.reveal {
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/*
+   Main page starts slightly hidden
+*/
+
+#main-content {
+
+    opacity: 0;
+
+    transform:
+        scale(1.025);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.4s ease;
+}
+
+
+/*
+   After countdown
+*/
+
+#main-content.show {
+
+    opacity: 1;
+
+    transform:
+        scale(1);
+}
+
+
+/* =========================================
+   FINAL COUNTDOWN EFFECT
+========================================= */
+
+.countdown-number.final {
+
+    animation:
+        birthdayReveal
+        1s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        );
+}
+
+
+@keyframes birthdayReveal {
+
+    0% {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+    }
+
+
+    45% {
+
+        transform:
+            scale(1.35);
+
+        opacity: 1;
+    }
+
+
+    100% {
+
+        transform:
+            scale(2);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+    .countdown-number {
+
+        font-size: 105px;
+
+    }
+
+
+    .intro-small {
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .intro-message {
+
+        font-size: 20px;
+
+    }
+
+}
