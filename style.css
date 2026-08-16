@@ -224,6 +224,9 @@ h2 {
     backdrop-filter:
         blur(12px);
 
+    -webkit-backdrop-filter:
+        blur(12px);
+
     animation:
         cardAppear 1.5s ease forwards;
 }
@@ -516,9 +519,6 @@ h2 {
    ANIMATIONS
 ========================= */
 
-
-/* Background movement */
-
 @keyframes lilyBackground {
 
     0% {
@@ -544,8 +544,6 @@ h2 {
 }
 
 
-/* Text entrance */
-
 @keyframes fadeUp {
 
     from {
@@ -565,8 +563,6 @@ h2 {
     }
 }
 
-
-/* Card entrance */
 
 @keyframes cardAppear {
 
@@ -590,8 +586,6 @@ h2 {
 }
 
 
-/* Scroll arrow */
-
 @keyframes bounce {
 
     0%, 100% {
@@ -607,8 +601,6 @@ h2 {
     }
 }
 
-
-/* Small flower pulse */
 
 @keyframes flowerPulse {
 
@@ -677,11 +669,13 @@ h2 {
     }
 }
 
+
 /* =========================
    PAGE 2 NAVIGATION
 ========================= */
 
 .page-divider {
+
     display: flex;
 
     align-items: center;
@@ -697,6 +691,7 @@ h2 {
 
 
 .page-divider span {
+
     width: 65px;
 
     height: 1px;
@@ -707,6 +702,7 @@ h2 {
 
 
 .page-divider div {
+
     font-family: serif;
 
     font-size: 24px;
@@ -726,6 +722,7 @@ h2 {
 ========================= */
 
 .next-button {
+
     display: inline-block;
 
     padding:
@@ -758,6 +755,9 @@ h2 {
     backdrop-filter:
         blur(8px);
 
+    -webkit-backdrop-filter:
+        blur(8px);
+
     box-shadow:
         0 8px 25px
         rgba(40, 10, 25, 0.15);
@@ -770,6 +770,7 @@ h2 {
 
 
 .next-button:hover {
+
     background:
         rgba(255, 242, 247, 0.22);
 
@@ -781,15 +782,26 @@ h2 {
         rgba(40, 10, 25, 0.22);
 }
 
+
 /* =========================================
    OPENING COUNTDOWN
+   ANDROID FRIENDLY
 ========================================= */
 
 #intro-screen {
 
     position: fixed;
 
-    inset: 0;
+    /* Fallback for older Android browsers */
+    width: 100%;
+    height: 100%;
+
+    /* Modern mobile viewport */
+    width: 100vw;
+    height: 100dvh;
+
+    top: 0;
+    left: 0;
 
     z-index: 9999;
 
@@ -806,7 +818,7 @@ h2 {
 
     background-size: cover;
 
-    background-position: center;
+    background-position: center center;
 
     background-repeat: no-repeat;
 
@@ -814,22 +826,39 @@ h2 {
 
     transition:
         opacity 1.2s ease;
+
+    touch-action: none;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    box-sizing: border-box;
 }
 
 
-/* Dark layer over preview */
+/* Dark layer */
 
 .intro-overlay {
 
     position: absolute;
 
-    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
 
     background:
         rgba(45, 15, 32, 0.45);
 
-    backdrop-filter:
-        blur(1px);
+    /*
+     * Deliberately no backdrop-filter here.
+     * This makes the intro more reliable
+     * on Android Chrome.
+     */
+
+    pointer-events: none;
 }
 
 
@@ -841,6 +870,8 @@ h2 {
 
     z-index: 2;
 
+    width: 100%;
+
     display: flex;
 
     flex-direction: column;
@@ -851,6 +882,9 @@ h2 {
 
     text-align: center;
 
+    padding: 20px;
+
+    box-sizing: border-box;
 }
 
 
@@ -858,7 +892,8 @@ h2 {
 
 .intro-small {
 
-    margin-bottom: 20px;
+    margin:
+        0 0 20px 0;
 
     font-family:
         "Montserrat",
@@ -872,6 +907,8 @@ h2 {
 
     color:
         rgba(255, 245, 248, 0.88);
+
+    line-height: 1.5;
 }
 
 
@@ -880,16 +917,19 @@ h2 {
 .countdown-number {
 
     font-family:
-        "Georgia",
+        Georgia,
         serif;
 
     font-size: 125px;
 
     line-height: 1;
 
-    font-weight: 500;
+    font-weight: 400;
 
-    color: #fff5f8;
+    font-style: italic;
+
+    color:
+        #fff5f8;
 
     text-shadow:
         0 8px 35px
@@ -899,6 +939,9 @@ h2 {
         countdownAppear
         0.8s
         ease;
+
+    -webkit-font-smoothing:
+        antialiased;
 }
 
 
@@ -906,7 +949,8 @@ h2 {
 
 .intro-message {
 
-    margin-top: 20px;
+    margin:
+        20px 0 0 0;
 
     font-family:
         "Cormorant Garamond",
@@ -918,6 +962,8 @@ h2 {
 
     color:
         rgba(255, 230, 239, 0.92);
+
+    line-height: 1.4;
 }
 
 
@@ -931,7 +977,6 @@ h2 {
 
         transform:
             scale(0.65);
-
     }
 
     60% {
@@ -940,7 +985,6 @@ h2 {
 
         transform:
             scale(1.08);
-
     }
 
     100% {
@@ -949,9 +993,7 @@ h2 {
 
         transform:
             scale(1);
-
     }
-
 }
 
 
@@ -967,10 +1009,6 @@ h2 {
 }
 
 
-/*
-   Main page starts slightly hidden
-*/
-
 #main-content {
 
     opacity: 0;
@@ -983,10 +1021,6 @@ h2 {
         transform 1.4s ease;
 }
 
-
-/*
-   After countdown
-*/
 
 #main-content.show {
 
@@ -1025,7 +1059,6 @@ h2 {
         opacity: 1;
     }
 
-
     45% {
 
         transform:
@@ -1034,7 +1067,6 @@ h2 {
         opacity: 1;
     }
 
-
     100% {
 
         transform:
@@ -1042,20 +1074,46 @@ h2 {
 
         opacity: 0;
     }
-
 }
 
 
 /* =========================================
-   MOBILE
+   MOBILE / ANDROID
 ========================================= */
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+
+    #intro-screen {
+
+        /*
+         * Keep the image centered on phones.
+         */
+
+        background-position:
+            center center;
+    }
+
+
+    .intro-content {
+
+        /*
+         * Prevent content from touching
+         * the edges on narrow phones.
+         */
+
+        padding:
+            20px 16px;
+    }
+
 
     .countdown-number {
 
-        font-size: 105px;
-
+        font-size:
+            clamp(
+                90px,
+                27vw,
+                125px
+            );
     }
 
 
@@ -1064,14 +1122,53 @@ h2 {
         font-size: 9px;
 
         letter-spacing: 3px;
-
     }
 
 
     .intro-message {
 
         font-size: 20px;
+    }
+}
 
+
+/* Small Android phones */
+
+@media (max-width: 360px) {
+
+    .countdown-number {
+
+        font-size: 90px;
     }
 
+
+    .intro-small {
+
+        font-size: 8px;
+
+        letter-spacing: 2.5px;
+    }
+}
+
+
+/* Android landscape / short screens */
+
+@media (max-height: 500px) {
+
+    .countdown-number {
+
+        font-size: 80px;
+    }
+
+
+    .intro-small {
+
+        margin-bottom: 10px;
+    }
+
+
+    .intro-message {
+
+        margin-top: 10px;
+    }
 }
