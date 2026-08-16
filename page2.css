@@ -787,3 +787,72 @@ h2 {
     object-fit: cover;
     border-radius: 19px;
 }
+
+/* =========================
+   CORNER LILIES
+========================= */
+
+.corner-lily {
+    position: fixed;
+
+    width: 250px;
+    height: 250px;
+
+    object-fit: contain;
+
+    opacity: 0.13;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 8px 20px
+            rgba(30, 10, 20, 0.20)
+        );
+
+    animation:
+        cornerFloat
+        7s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+/* Top-left */
+
+.corner-lily-top {
+    top: -60px;
+    left: -55px;
+
+    transform: rotate(-20deg);
+}
+
+
+/* Bottom-right */
+
+.corner-lily-bottom {
+    bottom: -60px;
+    right: -55px;
+
+    transform: rotate(20deg);
+
+    animation-delay: -3s;
+}
+
+
+/* Subtle movement */
+
+@keyframes cornerFloat {
+
+    from {
+        margin-top: 0;
+    }
+
+    to {
+        margin-top: 10px;
+    }
+
+}
