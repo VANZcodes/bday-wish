@@ -1128,3 +1128,8 @@ h2 {
 
     font-style: normal;
 }
+
+.spin-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
